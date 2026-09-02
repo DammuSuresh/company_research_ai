@@ -5,8 +5,7 @@ A sales rep types in a company name; an AI agent researches it with live web sea
 ```
 Backend:  Python + FastAPI + SQLite (SQLAlchemy)
 Frontend: React + TypeScript + Tailwind CSS v4 (Vite)
-AI:       Google Gemini (gemini-2.5-flash by default)
-Search:   Google Programmable Search Engine (Custom Search JSON API)
+AI/search: Google Gemini (gemini-3.6-flash) with native Google Search grounding
 ```
 
 ## Quick start
@@ -115,7 +114,7 @@ Frontend: `cd frontend && npm run build` type-checks (`tsc -b`) and bundles; `np
 
 **Do:**
 - Run it with zero setup first (mock mode) before wiring up real keys — confirms the app itself works before you debug API quota/billing issues.
-- Keep `GEMINI_API_KEY` / `GOOGLE_SEARCH_API_KEY` / `GOOGLE_SEARCH_CX` in `backend/.env` only.
+- Keep `GEMINI_API_KEY` in `backend/.env` only.
 - Treat a `null` financial field as "genuinely unknown," not a bug — see [Trade-offs](#trade-offs--limitations) on why we never fabricate numbers.
 - Expect the two dev servers (`:5173` frontend, `:8000` backend) to run side-by-side; Vite proxies `/api/*` to the backend, so you never have to think about CORS or base URLs.
 
@@ -161,5 +160,6 @@ frontend/
     components/      # SearchBar, ReportView, ReportHistorySidebar, EmptyState, ErrorBanner
     types.ts, utils/time.ts
 ```
-#   c o m p a n y _ r e s e a r c h _ a i  
+#   c o m p a n y _ r e s e a r c h _ a i 
+ 
  
